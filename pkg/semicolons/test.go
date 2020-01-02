@@ -13,6 +13,7 @@ func test() {
 		doSomething()
 	}
 
+  // This file intentionally doesn't compile.
   if a < b
   {
     doSomething()
