@@ -9,6 +9,7 @@ func doubleAll(s []int) {
 }
 
 func printAll(s []int) {
+	log.Printf("------ printing slice : len=%v cap=%v ------", len(s), cap(s))
 	for i, v := range s {
 		log.Printf("idx %3d = %3d", i, v)
 	}
