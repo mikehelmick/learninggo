@@ -72,6 +72,7 @@ func callSunriseAPI(lat, lon float32, ch chan Reply) {
 
 func main() {
 	done := make(chan Reply)
+	defer close(done)
 	log.Printf("Calling Sunrise API")
 	go callSunriseAPI(lat, lon, done)
 	log.Printf("Called API waiting for response")
@@ -87,5 +88,4 @@ func main() {
 
 		fmt.Printf(r.Response.Results.toString())
 	}
-
 }
