@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"sort"
+
+	"github.com/mikehelmick/learninggo/pkg/duck"
 )
 
 /* Consider the sort.Interface type
@@ -29,6 +31,7 @@ func (f Fraction) print() {
 	log.Printf("%2d/%2d = %5.3f", f.n, f.d, r)
 }
 
+// Fractions is a slice of Fraction
 type Fractions []Fraction
 
 func (s Fractions) Len() int {
@@ -45,6 +48,18 @@ func (s Fractions) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
 
+type mallard struct {
+	name string
+}
+
+func (m mallard) Name() string {
+	return m.name
+}
+
+func (m mallard) Quack() {
+	log.Printf("%v quacked", m)
+}
+
 func main() {
 	var s Fractions = make([]Fraction, 5)
 	s[0] = Fraction{1, 2}
@@ -56,5 +71,12 @@ func main() {
 	sort.Sort(s)
 	for _, v := range s {
 		v.print()
+	}
+
+	// Interface check example
+	var steve interface{} = mallard{"steve"}
+	if _, ok := steve.(duck.Interface); ok {
+		log.Printf("%v is a Duck", steve)
+		steve.(duck.Interface).Quack()
 	}
 }
