@@ -25,6 +25,12 @@ func main() {
 	printAll(s)
 	doubleAll(s)
 	printAll(s)
+	// Create a new slice without the first 2 or last 2 elements of s
+	trimEnds := s[2 : len(s)-2]
+	printAll(trimEnds)
+	// Show that they still point to the same underlying memory
+	trimEnds[0] = 50
+	printAll(s)
 
 	// Show array and slice types are distinct
 	// arr := [2]int{1, 2}

@@ -50,8 +50,8 @@ func main() {
 		log.Printf("42 / 5 = %v rem %v", d, r)
 	}
 
-	sum := sum(21, 15, 9)
-	log.Printf("Sum is: %v", sum)
+	total := sum(21, 15, 9)
+	log.Printf("Sum is: %v", total)
 
 	{
 		var a foo = 5
